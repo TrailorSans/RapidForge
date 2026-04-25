@@ -96,7 +96,17 @@ local function throttle(callback, interval)
 	end
 end
 
+local function once(callback)
+	local called = false
+	return function(...)
+		if called then return end
+		called = true
+		return callback(...)
+	end
+end
+
 return {
+	once = once,
 	debounce = debounce,
 	retry = retry,
 	formatNumber = formatNumber,
