@@ -171,6 +171,8 @@ Returns a full recursive copy of a table. Nested tables are copied by value, not
 local copy = RapidForge.deepCopy(originalConfig)
 ```
 
+---
+
 ### `once(callback)`
 
 Wraps a function so it can only ever fire once. All subsequent calls are ignored.
