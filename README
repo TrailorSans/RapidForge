@@ -1,0 +1,40 @@
+# RapidForge
+
+A lightweight Luau utility library for Roblox development.
+
+## Getting Started
+
+Require the main module at the top of your script:
+
+```lua
+local RapidForge = require(game:GetService("ReplicatedStorage"):WaitForChild("Library"):WaitForChild("RapidForge"))
+```
+
+## Functions
+
+All functions are documented inside their respective `ModuleScript` in the `Library` folder. Open any file there to see what it does and how to use it.
+
+## Adding Your Own Functions
+
+1. Create a new `ModuleScript` inside the `Library` folder with a unique name.
+2. Open `RapidForge.lua` and register it:
+
+```lua
+RapidForge.YourFunction = require(Library.YourFunction)
+```
+
+If your module exposes multiple functions:
+
+```lua
+local yourModule = require(Library.YourModule)
+RapidForge.SubFunctionA = yourModule.SubFunctionA
+RapidForge.SubFunctionB = yourModule.SubFunctionB
+```
+
+## Contributing
+
+Have a suggestion or want to share a function? Post it in the <a href="https://www.roblox.com/communities/418459103/RapidTools-Development#!/about">Community</a> Forums.
+
+## License
+
+Released into the public domain under the [Unlicense](LICENSE).
