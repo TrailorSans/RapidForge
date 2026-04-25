@@ -1,37 +1,41 @@
 # Events
 
-Functions for connecting to instance events.
+Helpers for connecting to and managing Roblox events.
 
 ---
 
-## `onEvent(instance, event, callback)`
+### `onEvent(instance, event, callback)`
 
-Connects a callback function to an event on an instance. This is a thin wrapper around `:Connect()`.
+Connects a callback to an event on an instance. A shorthand for `instance[event]:Connect(callback)`.
 
-**Parameters**
-
-| Name | Type | Description |
-|---|---|---|
-| `instance` | Instance | The instance that owns the event |
-| `event` | string | The name of the event as a string |
-| `callback` | function | The function to call when the event fires |
-
-**Returns** `RBXScriptConnection`
-
-**Example**
+| | |
+|---|---|
+| **Parameters** | `instance: Instance`, `event: string`, `callback: function` |
+| **Returns** | `RBXScriptConnection` |
 
 ```lua
-RapidForge.onEvent(button, "MouseButton1Click", function()
-    print("Button clicked")
+local conn = RapidForge.onEvent(part, "Touched", function(hit)
+    print(hit.Name)
 end)
 ```
 
-You can store the connection to disconnect it later:
+Store the returned connection to disconnect later:
 
 ```lua
-local connection = RapidForge.onEvent(part, "Touched", function(hit)
-    print(hit.Name)
-end)
+conn:Disconnect()
+```
 
-connection:Disconnect()
+---
+
+### `waitFor(parent, name, timeout?)`
+
+Waits for a child with the given name to appear under `parent`. Prints a warning if the timeout is reached without finding it.
+
+| | |
+|---|---|
+| **Parameters** | `parent: Instance`, `name: string`, `timeout?: number = 10` |
+| **Returns** | `Instance?` |
+
+```lua
+local button = RapidForge.waitFor(screenGui, "PlayButton", 5)
 ```

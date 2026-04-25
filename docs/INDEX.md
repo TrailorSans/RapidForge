@@ -1,36 +1,26 @@
-# RapidForge Documentation
+# RapidForge Docs
 
-Welcome to the RapidForge documentation. RapidForge is a lightweight Luau utility library for Roblox.
-
-## Requiring RapidForge
+RapidForge is a lightweight Roblox utility library. Require it once and access all helpers through a single table.
 
 ```lua
-local RapidForge = require(game:GetService("ReplicatedStorage"):WaitForChild("Library"):WaitForChild("RapidForge"))
+local RapidForge = require(game.ReplicatedStorage.Library.RapidForge)
 ```
 
 ## Categories
 
-| Category | Functions |
-|---|---|
-| [GUI](gui.md) | `indexGui`, `waitFor` |
-| [Player](player.md) | `getPlayer`, `getCharacter` |
-| [Animation](animation.md) | `tweenObject` |
-| [Events](events.md) | `onEvent` |
+| File | Description |
+|------|-------------|
+| [GUI.md](GUI.md) | GuiObject manipulation, visibility, cloning, theming |
+| [ANIMATION.md](ANIMATION.md) | Fade, slide, and tween helpers |
+| [PLAYER.md](PLAYER.md) | Local player, character, humanoid, inventory |
+| [WORLD.md](WORLD.md) | Instance traversal, cloning, destruction, model utils |
+| [MATH.md](MATH.md) | Lerp, clamp, random, distance, CFrame helpers |
+| [UTILITY.md](UTILITY.md) | Debounce, throttle, table helpers, formatting |
+| [EVENTS.md](EVENTS.md) | Event connection helpers |
 
-## Extending RapidForge
+## Conventions
 
-To add your own function, create a new `ModuleScript` in the `Library` folder and register it in `RapidForge.lua`:
-
-```lua
-RapidForge.YourFunction = require(Library.YourFunction)
-```
-
-If your module exposes multiple functions:
-
-```lua
-local yourModule = require(Library.YourModule)
-RapidForge.SubFunctionA = yourModule.SubFunctionA
-RapidForge.SubFunctionB = yourModule.SubFunctionB
-```
-
-Have a suggestion? Post it in the <a href="https://www.roblox.com/communities/418459103/RapidTools-Development#!/about">Community Forums</a>.
+- All functions are accessed via `RapidForge.*`
+- All player functions target `Players.LocalPlayer` unless a `player` argument is specified
+- Optional parameters are shown with a default value: `duration?: number = 0.3`
+- Functions that return nothing are omitted from the Returns row

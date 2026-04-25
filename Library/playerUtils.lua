@@ -10,7 +10,68 @@ local function getCharacter()
 	return player.Character or player.CharacterAdded:Wait()
 end
 
+local function getUserId()
+	local player = Players.LocalPlayer
+	return player and player.UserId
+end
+
+local function getDisplayName()
+	local player = Players.LocalPlayer
+	return player and player.DisplayName
+end
+
+local function getHumanoid()
+	local character = getCharacter()
+	return character and character:FindFirstChildOfClass("Humanoid")
+end
+
+local function isAlive()
+	local humanoid = getHumanoid()
+	return humanoid ~= nil and humanoid.Health > 0
+end
+
+local function getRootPart()
+	local character = getCharacter()
+	return character and character:FindFirstChild("HumanoidRootPart")
+end
+
+local function getHealth()
+	local humanoid = getHumanoid()
+	return humanoid and humanoid.Health
+end
+
+local function getTeam()
+	local player = Players.LocalPlayer
+	return player and player.Team
+end
+
+local function getTool()
+	local character = getCharacter()
+	if not character then return nil end
+	return character:FindFirstChildOfClass("Tool")
+end
+
+local function getBackpack()
+	local player = Players.LocalPlayer
+	return player and player:FindFirstChildOfClass("Backpack")
+end
+
+local function getLeaderstats(player)
+	local target = player or Players.LocalPlayer
+	return target and target:FindFirstChild("leaderstats")
+end
+
 return {
 	getPlayer = getPlayer,
-	getCharacter = getCharacter
+	getCharacter = getCharacter,
+	getUserId = getUserId,
+	getDisplayName = getDisplayName,
+	isAlive = isAlive,
+	getHumanoid = getHumanoid,
+	getRootPart = getRootPart,
+	getHealth = getHealth,
+	getTeam = getTeam,
+	getTool = getTool,
+	getBackpack = getBackpack,
+	getLeaderstats = getLeaderstats,
 }
