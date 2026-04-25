@@ -170,3 +170,24 @@ Returns a full recursive copy of a table. Nested tables are copied by value, not
 ```lua
 local copy = RapidForge.deepCopy(originalConfig)
 ```
+
+---
+
+### `once(callback)`
+
+Wraps a function so it can only ever fire once. All subsequent calls are ignored.
+
+| | |
+|---|---|
+| **Parameters** | `callback: function` |
+| **Returns** | `function` |
+
+​```lua
+local initialize = RapidForge.once(function()
+    -- runs exactly one time
+end)
+
+part.Touched:Connect(initialize)
+​```
+
+
