@@ -6,7 +6,7 @@ All notable changes to RapidForge will be documented here.
 
 ## [Unreleased]
 
-## [1.0.0] - 2025-04-25
+## [r1] - 2026-04-25 <!--I'll never let AI write my changelog again -->
 
 ### Added
 
