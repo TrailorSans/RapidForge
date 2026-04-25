@@ -12,7 +12,27 @@ local RapidForge = require(game:GetService("ReplicatedStorage"):WaitForChild("Li
 
 ## Functions
 
-All functions are documented inside their respective `ModuleScript` in the `Library` folder. Open any file there to see what it does and how to use it.
+All functions are documented inside the `docs/` folder. See the index below for a full overview.
+
+## Docs
+
+| File | Description |
+|------|-------------|
+| [docs/INDEX.md](docs/INDEX.md) | Full function index |
+| [docs/GUI.md](docs/GUI.md) | GuiObject manipulation, visibility, cloning, theming |
+| [docs/ANIMATION.md](docs/ANIMATION.md) | Fade, slide, and tween helpers |
+| [docs/PLAYER.md](docs/PLAYER.md) | Local player, character, humanoid, inventory |
+| [docs/WORLD.md](docs/WORLD.md) | Instance traversal, cloning, destruction, model utils |
+| [docs/MATH.md](docs/MATH.md) | Lerp, clamp, random, distance, CFrame helpers |
+| [docs/UTILITY.md](docs/UTILITY.md) | Debounce, throttle, table helpers, formatting |
+| [docs/EVENTS.md](docs/EVENTS.md) | Event connection helpers |
+
+## Project
+
+| File | Description |
+|------|-------------|
+| [meta/CHANGELOG.md](meta/CHANGELOG.md) | Version history and release notes |
+| [meta/TODO.md](meta/TODO.md) | Planned functions and improvements |
 
 ## Adding Your Own Functions
 
