@@ -68,5 +68,6 @@ RapidForge.tableLength = utilityUtils.tableLength
 RapidForge.merge = utilityUtils.merge
 RapidForge.deepCopy = utilityUtils.deepCopy
 RapidForge.throttle = utilityUtils.throttle
+RapidForge.once = utilityUtils.once
 
 return RapidForge
