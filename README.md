@@ -7,7 +7,7 @@ A lightweight Luau utility library for Roblox development.
 Require the main module at the top of your script:
 
 ```lua
-local RapidForge = require(game:GetService("ReplicatedStorage"):WaitForChild("Library"):WaitForChild("RapidForge"))
+local RapidForge = require(game:GetService("ReplicatedStorage"):WaitForChild("library"):WaitForChild("RapidForge"))
 ```
 
 ## Functions
@@ -58,4 +58,4 @@ Have a suggestion or want to share a function? Post it in the <a href="https://w
 
 ## License
 
-Released into the public domain under the [Unlicense](LICENSE).
+Released into the public domain under the [CC0 1.0 Universal](LICENSE).
