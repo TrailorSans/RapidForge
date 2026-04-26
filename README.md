@@ -28,6 +28,15 @@ All functions are documented inside the `docs/` folder. See the index below for 
 | [docs/EVENTS.md](docs/EVENTS.md) | Event connection helpers |
 | [docs/LOGGER.md](docs/LOGGER.md) | Structured logging |
 
+## Examples
+
+| File | Description |
+|------|-------------|
+| [examples/healthbar.md](examples/healthbar.md) | Healthbar with RapidForge |
+| [examples/ChestInteraction.md](examples/ChestInteraction.md) | Chest Interactions with RapidForge |
+| [examples/EnemySpawner.md](examples/EnemySpawner.md) | Enemy Spawning with RapidForge |
+| [examples/LeaderboardGui.md](examples/LeaderboardGui.md) | Guis with RapidForge |
+
 ## Project
 
 | File | Description |
