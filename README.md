@@ -26,6 +26,7 @@ All functions are documented inside the `docs/` folder. See the index below for 
 | [docs/MATH.md](docs/MATH.md) | Lerp, clamp, random, distance, CFrame helpers |
 | [docs/UTILITY.md](docs/UTILITY.md) | Debounce, throttle, table helpers, formatting |
 | [docs/EVENTS.md](docs/EVENTS.md) | Event connection helpers |
+| [docs/LOGGER.md](docs/LOGGER.md) | Structured logging |
 
 ## Project
 
