@@ -1,4 +1,4 @@
-local RapidForge = require(game:GetService("ReplicatedStorage"):WaitForChild("Library"):WaitForChild("RapidForge"))
+local RapidForge = require(game:GetService("ReplicatedStorage"):WaitForChild("library"):WaitForChild("RapidForge"))
 
 local healthBar = RapidForge.waitFor(RapidForge.getGui("HUD"), "HealthBar")
 local fill = RapidForge.waitFor(healthBar, "Fill")
