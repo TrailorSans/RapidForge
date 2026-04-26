@@ -1,4 +1,4 @@
-local RapidForge = require(game:GetService("ReplicatedStorage"):WaitForChild("Library"):WaitForChild("RapidForge"))
+local RapidForge = require(game:GetService("ReplicatedStorage"):WaitForChild("library"):WaitForChild("RapidForge"))
 local RunService = game:GetService("RunService")
 
 local CHEST_RANGE = 8
