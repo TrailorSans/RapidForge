@@ -25,6 +25,7 @@ meta/             Changelog, TODO, and project metadata
 | World / instances | `library/worldUtils.lua` |
 | Math / CFrame | `library/mathUtils.lua` |
 | Utility / tables | `library/utilityUtils.lua` |
+| Audio | `library/audioService.lua` |
 
 If your function doesn't fit any of these, create a new `ModuleScript` in `library/`.
 
