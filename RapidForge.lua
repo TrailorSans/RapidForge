@@ -1,4 +1,4 @@
-local library = game:GetService("ReplicatedStorage"):WaitForChild("library")
+local Library = game:GetService("ReplicatedStorage"):WaitForChild("library")
 
 local RapidForge = {}
 
