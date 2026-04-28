@@ -15,8 +15,8 @@ root/
     ├── indexGui.lua
     ├── tweenObject.lua
     ├── onEvent.lua
-    └── waitFor.lua
-    └── audioService.lua
+    ├── waitFor.lua
+    ├── audioService.lua
     └── indexService.lua
 ```
 
