@@ -27,6 +27,8 @@ All functions are documented inside the `docs/` folder. See the index below for 
 | [docs/UTILITY.md](docs/UTILITY.md) | Debounce, throttle, table helpers, formatting |
 | [docs/EVENTS.md](docs/EVENTS.md) | Event connection helpers |
 | [docs/LOGGER.md](docs/LOGGER.md) | Structured logging |
+| [docs/SERVICE.md](docs/SERVICE.md) | Service indexing |
+| [docs/AUDIO.md](docs/AUDIO.md) | Background music, playback, volume, and fade. |
 
 ## Examples
 
