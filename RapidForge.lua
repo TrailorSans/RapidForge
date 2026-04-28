@@ -7,6 +7,7 @@ RapidForge.tweenObject = require(Library.tweenObject)
 RapidForge.onEvent = require(Library.onEvent)
 RapidForge.waitFor = require(Library.waitFor)
 RapidForge.Logger = require(Library.logger)
+RapidForge.indexService = require(Library.indexService)
 
 local playerUtils = require(Library.playerUtils)
 RapidForge.getPlayer = playerUtils.getPlayer
