@@ -8,6 +8,7 @@ RapidForge.onEvent = require(Library.onEvent)
 RapidForge.waitFor = require(Library.waitFor)
 RapidForge.Logger = require(Library.logger)
 RapidForge.indexService = require(Library.indexService)
+RapidForge.audioService = require(Library.audioService)
 
 local playerUtils = require(Library.playerUtils)
 RapidForge.getPlayer = playerUtils.getPlayer
