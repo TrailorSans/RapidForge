@@ -10,3 +10,5 @@ All notable changes to RapidForge will be documented here.
 
 #### Utility
 - `once(callback)` Function called one-time
+- `indexService("Service")` Service indexer
+- audioService
