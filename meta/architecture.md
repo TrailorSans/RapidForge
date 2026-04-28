@@ -16,6 +16,8 @@ root/
     ├── tweenObject.lua
     ├── onEvent.lua
     └── waitFor.lua
+    └── audioService.lua
+    └── indexService.lua
 ```
 
 ## Entry Point
