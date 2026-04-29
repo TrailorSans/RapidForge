@@ -45,6 +45,8 @@ All functions are documented inside the `docs/` folder. See the index below for 
 |------|-------------|
 | [meta/CHANGELOG.md](meta/CHANGELOG.md) | Version history and release notes |
 | [meta/TODO.md](meta/TODO.md) | Planned functions and improvements |
+| [meta/contributing.md](meta/contributing.md) | How to contribute to RapidForge |
+| [meta/architecture.md](meta/architecture.md) | RapidForge's architecture |
 
 ## Adding Your Own Functions
 
