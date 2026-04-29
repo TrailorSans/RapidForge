@@ -23,6 +23,7 @@ RapidForge.getTeam = playerUtils.getTeam
 RapidForge.getTool = playerUtils.getTool
 RapidForge.getBackpack = playerUtils.getBackpack
 RapidForge.getLeaderstats = playerUtils.getLeaderstats
+RapidForge.onDied = playerUtils.onDied
 
 local guiUtils = require(Library.guiUtils)
 RapidForge.getGui = guiUtils.getGui
@@ -59,6 +60,7 @@ RapidForge.lookAtCFrame = mathUtils.lookAtCFrame
 RapidForge.flattenVector = mathUtils.flattenVector
 RapidForge.angleToTarget = mathUtils.angleToTarget
 RapidForge.isInRange = mathUtils.isInRange
+RapidForge.randomVector = mathUtils.randomVector
 
 local utilityUtils = require(Library.utilityUtils)
 RapidForge.debounce = utilityUtils.debounce
