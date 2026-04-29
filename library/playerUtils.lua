@@ -61,6 +61,25 @@ local function getLeaderstats(player)
 	return target and target:FindFirstChild("leaderstats")
 end
 
+local function onDied(callback)
+	local player = Players.LocalPlayer
+	if not player then return end
+
+	local function connectHumanoid(character)
+		local humanoid = character:FindFirstChildOfClass("Humanoid")
+			or character:WaitForChild("Humanoid", 10)
+		if humanoid then
+			humanoid.Died:Connect(callback)
+		end
+	end
+
+	if player.Character then
+		connectHumanoid(player.Character)
+	end
+
+	player.CharacterAdded:Connect(connectHumanoid)
+end
+
 return {
 	getPlayer = getPlayer,
 	getCharacter = getCharacter,
@@ -74,4 +93,5 @@ return {
 	getTool = getTool,
 	getBackpack = getBackpack,
 	getLeaderstats = getLeaderstats,
+	onDied = onDied,
 }
