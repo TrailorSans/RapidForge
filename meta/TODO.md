@@ -28,3 +28,6 @@
 - [ ] `endsWith(str, suffix)` - check if a string ends with a suffix
 - [ ] `padLeft(str, length, char)` - pad a string on the left to a given length
 - [ ] `sign(number)` - return 1, -1, or 0 based on the sign of a number
+
+### Audio
+- [X] audioService
