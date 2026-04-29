@@ -41,6 +41,14 @@ local function isInRange(partA, partB, range)
 	return distanceBetween(partA, partB) <= range
 end
 
+local function randomVector(min, max)
+	return Vector3.new(
+		min + math.random() * (max - min),
+		min + math.random() * (max - min),
+		min + math.random() * (max - min)
+	)
+end
+
 return {
 	lerp = lerp,
 	clamp = clamp,
@@ -52,4 +60,5 @@ return {
 	flattenVector = flattenVector,
 	angleToTarget = angleToTarget,
 	isInRange = isInRange,
+	randomVector = randomVector,
 }
