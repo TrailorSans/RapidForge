@@ -8,7 +8,7 @@
 - [ ] `pulseObject(instance, scale, duration)` - briefly scale a GuiObject up and back
 
 ### Player
-- [ ] `onDied(callback)` - fire a callback when the local player dies
+- [X] `onDied(callback)` - fire a callback when the local player dies
 - [ ] `onRespawned(callback)` - fire a callback when the local player respawns
 - [ ] `getLeaderstat(name)` - return a single leaderstat value by name
 
@@ -19,7 +19,7 @@
 - [ ] `waitForClass(parent, className, timeout)` - wait for a child of a given class
 
 ### Math / CFrame
-- [ ] `randomVector(min, max)` - return a random Vector3 within a range
+- [X] `randomVector(min, max)` - return a random Vector3 within a range
 - [ ] `oscillate(t, speed, amplitude)` - return a sine-wave value over time
 
 ### Utility
