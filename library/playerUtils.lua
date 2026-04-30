@@ -65,22 +65,36 @@ local function onDied(callback)
 	local player = Players.LocalPlayer
 	if not player then return end
 
-	local function connectHumanoid(character)
-		local humanoid = character:FindFirstChildOfClass("Humanoid")
-			or character:WaitForChild("Humanoid", 10)
-		if humanoid then
-			humanoid.Died:Connect(callback)
-		end
+	local function connectDied(character)
+		local humanoid = character:WaitForChild("Humanoid")
+		humanoid.Died:Connect(callback)
 	end
 
 	if player.Character then
-		connectHumanoid(player.Character)
+		connectDied(player.Character)
 	end
 
-	player.CharacterAdded:Connect(connectHumanoid)
+	player.CharacterAdded:Connect(connectDied)
 end
 
 local function onRespawned(callback)
+	local player = Players.LocalPlayer
+	if not player then return end
+
+	local firstCharacter = true
+
+	player.CharacterAdded:Connect(function(character)
+		if firstCharacter then
+			firstCharacter = false
+			return
+		end
+		callback(character)
+	end)
+
+	if player.Character then
+		firstCharacter = false
+	end
+end
 
 return {
 	getPlayer = getPlayer,
@@ -96,4 +110,5 @@ return {
 	getBackpack = getBackpack,
 	getLeaderstats = getLeaderstats,
 	onDied = onDied,
+	onRespawned = onRespawned,
 }

@@ -175,3 +175,33 @@ Returns the `leaderstats` folder from a player. Defaults to the local player.
 local stats = RapidForge.getLeaderstats()
 local coins = stats and stats.Coins.Value
 ```
+
+### `onDied(callback)`
+
+Fires `callback` when the local player's humanoid dies. Reconnects automatically after each respawn.
+
+| | |
+|---|---|
+| **Parameters** | `callback: function` |
+
+```lua
+RapidForge.onDied(function()
+    print("player died")
+end)
+```
+
+---
+
+### `onRespawned(callback)`
+
+Fires `callback` each time the local player respawns. The initial character load on join is ignored.
+
+| | |
+|---|---|
+| **Parameters** | `callback: function (character: Model)` |
+
+```lua
+RapidForge.onRespawned(function(character)
+    print("respawned", character.Name)
+end)
+```
