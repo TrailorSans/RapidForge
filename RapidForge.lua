@@ -24,6 +24,7 @@ RapidForge.getTool = playerUtils.getTool
 RapidForge.getBackpack = playerUtils.getBackpack
 RapidForge.getLeaderstats = playerUtils.getLeaderstats
 RapidForge.onDied = playerUtils.onDied
+RapidForge.onRespawned = playerUtils.onRespawned
 
 local guiUtils = require(Library.guiUtils)
 RapidForge.getGui = guiUtils.getGui
