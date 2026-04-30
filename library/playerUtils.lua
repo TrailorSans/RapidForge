@@ -80,6 +80,8 @@ local function onDied(callback)
 	player.CharacterAdded:Connect(connectHumanoid)
 end
 
+local function onRespawned(callback)
+
 return {
 	getPlayer = getPlayer,
 	getCharacter = getCharacter,
