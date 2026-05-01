@@ -7,7 +7,6 @@ local moduleMap = {
 	waitFor      = Library.waitFor,
 	Logger       = Library.logger,
 	indexService = Library.indexService,
-	audioService = Library.audioService,
 }
 
 local subModuleMap = {
@@ -50,6 +49,14 @@ local subModuleMap = {
 			"debounce", "retry", "formatNumber", "formatTime",
 			"tableContains", "tableKeys", "tableLength",
 			"merge", "deepCopy", "throttle", "once",
+		},
+	},
+	audioService = {
+    	module = Library.audioService,
+    	keys = {
+        	"addToQueue", "clearQueue", "play", "stop", "pause",
+        	"skip", "previous", "setVolume", "fadeIn", "fadeOut",
+        	"setLooping", "setShuffle", "isPlaying", "getCurrent",
 		},
 	},
 }
