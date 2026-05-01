@@ -61,6 +61,12 @@ local function getLeaderstats(player: Player?): Folder?
 	return target and target:FindFirstChild("leaderstats") :: Folder?
 end
 
+local function getLeaderstat(name: string, player: Player?): ValueBase?
+	local leaderstats = getLeaderstats(player)
+	if not leaderstats then return nil end
+	return leaderstats:FindFirstChild(name) :: ValueBase?
+end
+
 local function onDied(callback: () -> ()): ()
 	local player = Players.LocalPlayer
 	if not player then return end
@@ -103,6 +109,7 @@ return {
 	getTool = getTool,
 	getBackpack = getBackpack,
 	getLeaderstats = getLeaderstats,
+	getLeaderstat = getLeaderstat,
 	onDied = onDied,
 	onRespawned = onRespawned,
 }
