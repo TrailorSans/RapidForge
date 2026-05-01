@@ -1,5 +1,6 @@
 local TweenService = game:GetService("TweenService")
 local Players = game:GetService("Players")
+local log = require(script.Parent.internalLogger)
 
 local function getGui(name)
 	local playerGui = Players.LocalPlayer and Players.LocalPlayer:FindFirstChild("PlayerGui")
@@ -66,7 +67,7 @@ local function animateSlideIn(instance, direction, duration)
 	elseif direction == "bottom" then
 		offset = UDim2.new(originalPosition.X.Scale, originalPosition.X.Offset, originalPosition.Y.Scale + 1, originalPosition.Y.Offset)
 	else
-		warn("RapidForge.animateSlideIn: invalid direction '" .. tostring(direction) .. "'")
+		log:warn("animateSlideIn: invalid direction '" .. tostring(direction) .. "'")
 		return
 	end
 
