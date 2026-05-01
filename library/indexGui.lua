@@ -2,7 +2,7 @@ local Players = game:GetService("Players")
 local StarterGui = game:GetService("StarterGui")
 local RunService = game:GetService("RunService")
 
-return function(name)
+return function(name: string): Instance?
 	if RunService:IsClient() then
 		local playerGui = Players.LocalPlayer and Players.LocalPlayer:FindFirstChild("PlayerGui")
 		if playerGui then
@@ -10,6 +10,5 @@ return function(name)
 			if found then return found end
 		end
 	end
-
 	return StarterGui:FindFirstChild(name, true)
 end

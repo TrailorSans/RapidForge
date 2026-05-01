@@ -1,4 +1,6 @@
-local function debounce(callback, cooldown)
+local log = require(script.Parent.internalLogger)
+
+local function debounce(callback: (...any) -> (), cooldown: number): (...any) -> ()
 	local lastCall = 0
 	return function(...)
 		local now = tick()
@@ -9,7 +11,7 @@ local function debounce(callback, cooldown)
 	end
 end
 
-local function retry(callback, attempts, interval)
+local function retry(callback: () -> any, attempts: number, interval: number?): any
 	for i = 1, attempts do
 		local success, result = pcall(callback)
 		if success then
@@ -19,11 +21,11 @@ local function retry(callback, attempts, interval)
 			task.wait(interval or 1)
 		end
 	end
-	warn("RapidForge.retry: all " .. attempts .. " attempts failed")
+	log:warn("retry: all " .. attempts .. " attempts failed")
 	return nil
 end
 
-local function formatNumber(number)
+local function formatNumber(number: number): string
 	local formatted = tostring(math.floor(number))
 	local result = ""
 	local count = 0
@@ -37,20 +39,20 @@ local function formatNumber(number)
 	return result
 end
 
-local function formatTime(seconds)
+local function formatTime(seconds: number): string
 	local mins = math.floor(seconds / 60)
 	local secs = math.floor(seconds % 60)
 	return string.format("%02d:%02d", mins, secs)
 end
 
-local function tableContains(tbl, value)
+local function tableContains(tbl: {any}, value: any): boolean
 	for _, v in ipairs(tbl) do
 		if v == value then return true end
 	end
 	return false
 end
 
-local function tableKeys(tbl)
+local function tableKeys(tbl: {[any]: any}): {any}
 	local keys = {}
 	for k in pairs(tbl) do
 		table.insert(keys, k)
@@ -58,7 +60,7 @@ local function tableKeys(tbl)
 	return keys
 end
 
-local function tableLength(tbl)
+local function tableLength(tbl: {[any]: any}): number
 	local count = 0
 	for _ in pairs(tbl) do
 		count += 1
@@ -66,14 +68,14 @@ local function tableLength(tbl)
 	return count
 end
 
-local function merge(tableA, tableB)
+local function merge(tableA: {[any]: any}, tableB: {[any]: any}): {[any]: any}
 	local result = {}
 	for k, v in pairs(tableA) do result[k] = v end
 	for k, v in pairs(tableB) do result[k] = v end
 	return result
 end
 
-local function deepCopy(tbl)
+local function deepCopy(tbl: {[any]: any}): {[any]: any}
 	local copy = {}
 	for k, v in pairs(tbl) do
 		if type(v) == "table" then
@@ -85,7 +87,7 @@ local function deepCopy(tbl)
 	return copy
 end
 
-local function throttle(callback, interval)
+local function throttle(callback: (...any) -> (), interval: number): (...any) -> ()
 	local lastCall = -math.huge
 	return function(...)
 		local now = tick()
@@ -96,7 +98,7 @@ local function throttle(callback, interval)
 	end
 end
 
-local function once(callback)
+local function once(callback: (...any) -> ()): (...any) -> ()
 	local called = false
 	return function(...)
 		if called then return end

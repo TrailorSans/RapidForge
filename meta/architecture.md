@@ -7,6 +7,7 @@ root/
 ├── RapidForge.lua    <- entry point
 └── Library/
     ├── logger.lua
+    ├── internalLogger.lua
     ├── guiUtils.lua
     ├── playerUtils.lua
     ├── worldUtils.lua
