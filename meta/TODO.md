@@ -10,7 +10,7 @@
 ### Player
 - [X] `onDied(callback)` - fire a callback when the local player dies
 - [X] `onRespawned(callback)` - fire a callback when the local player respawns
-- [ ] `getLeaderstat(name)` - return a single leaderstat value by name
+- [X] `getLeaderstat(name)` - return a single leaderstat value by name
 
 ### World / Instances
 - [ ] `tagInstance(instance, tag)` - add a CollectionService tag to an instance
