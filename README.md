@@ -67,7 +67,7 @@ RapidForge.SubFunctionB = yourModule.SubFunctionB
 
 ## Contributing
 
-Have a suggestion or want to share a function? Post it in the <a href="https://www.roblox.com/communities/418459103/RapidTools-Development#!/about">Community Forums</a>.
+Have a suggestion or want to share a function? Share it in [Discussions](https://github.com/StudlyCase/RapidForge/discussions)
 
 ## License
 
