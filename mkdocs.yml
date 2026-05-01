@@ -4,7 +4,7 @@ site_url: https://StudlyCase.github.io/RapidForge
 repo_url: https://github.com/StudlyCase/RapidForge
 repo_name: RapidForge
 
-docs_dir: .
+docs_dir: docs
 
 theme:
   name: material
@@ -19,16 +19,16 @@ theme:
         name: Switch to light mode
 
 nav:
-  - Home: README.md
-  - GUI: docs/GUI.md
-  - Animation: docs/ANIMATION.md
-  - Player: docs/PLAYER.md
-  - World: docs/WORLD.md
-  - Math: docs/MATH.md
-  - Utility: docs/UTILITY.md
-  - Events: docs/EVENTS.md
-  - Logger: docs/LOGGER.md
-  - Audio: docs/AUDIO.md
-  - Services: docs/SERVICE.md
-  - Architecture: meta/architecture.md
-  - Changelog: meta/changelog.md
+  - Home: index.md
+  - GUI: GUI.md
+  - Animation: ANIMATION.md
+  - Player: PLAYER.md
+  - World: WORLD.md
+  - Math: MATH.md
+  - Utility: UTILITY.md
+  - Events: EVENTS.md
+  - Logger: LOGGER.md
+  - Audio: AUDIO.md
+  - Services: SERVICE.md
+  - Architecture: ../meta/architecture.md
+  - Changelog: ../meta/changelog.md
