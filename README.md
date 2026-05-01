@@ -1,5 +1,7 @@
 # RapidForge
 
+[![Docs](https://img.shields.io/badge/docs-online-blue)](https://StudlyCase.github.io/RapidForge)
+
 A lightweight Luau utility library for Roblox development.
 
 ## Getting Started
