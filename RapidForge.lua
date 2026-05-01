@@ -1,5 +1,7 @@
 local Library = game:GetService("ReplicatedStorage"):WaitForChild("library")
 
+rawset(RapidForge, "VERSION", "r2")
+
 local moduleMap = {
 	indexGui     = Library.indexGui,
 	tweenObject  = Library.tweenObject,
