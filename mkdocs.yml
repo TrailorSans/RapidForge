@@ -4,6 +4,8 @@ site_url: https://StudlyCase.github.io/RapidForge
 repo_url: https://github.com/StudlyCase/RapidForge
 repo_name: RapidForge
 
+docs_dir: .
+
 theme:
   name: material
   palette:
