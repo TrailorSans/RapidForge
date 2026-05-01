@@ -1,3 +1,5 @@
+local log = require(script.Parent.internalLogger)
+
 local function debounce(callback, cooldown)
 	local lastCall = 0
 	return function(...)
@@ -19,7 +21,7 @@ local function retry(callback, attempts, interval)
 			task.wait(interval or 1)
 		end
 	end
-	warn("RapidForge.retry: all " .. attempts .. " attempts failed")
+	log:warn("retry: all " .. attempts .. " attempts failed")
 	return nil
 end
 
