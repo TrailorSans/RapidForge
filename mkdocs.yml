@@ -1,0 +1,32 @@
+site_name: RapidForge
+site_description: A lightweight Luau utility library for Roblox
+site_url: https://StudlyCase.github.io/RapidForge
+repo_url: https://github.com/StudlyCase/RapidForge
+repo_name: RapidForge
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+nav:
+  - Home: README.md
+  - GUI: docs/GUI.md
+  - Animation: docs/ANIMATION.md
+  - Player: docs/PLAYER.md
+  - World: docs/WORLD.md
+  - Math: docs/MATH.md
+  - Utility: docs/UTILITY.md
+  - Events: docs/EVENTS.md
+  - Logger: docs/LOGGER.md
+  - Audio: docs/AUDIO.md
+  - Services: docs/SERVICE.md
+  - Architecture: meta/architecture.md
+  - Changelog: meta/changelog.md
