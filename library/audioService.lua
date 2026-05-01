@@ -3,16 +3,14 @@ local indexService = require(script.Parent.indexService)
 local log = require(script.Parent.internalLogger)
 local SoundService = indexService("SoundService")
 
-local AudioService = {}
+local queue: {Sound} = {}
+local currentIndex: number = 0
+local currentSound: Sound? = nil
+local looping: boolean = false
+local shuffle: boolean = false
+local playing: boolean = false
 
-local queue = {}
-local currentIndex = 0
-local currentSound = nil
-local looping = false
-local shuffle = false
-local playing = false
-
-local function getNextIndex()
+local function getNextIndex(): number?
 	if #queue == 0 then return nil end
 	if shuffle then
 		return math.random(1, #queue)
@@ -22,7 +20,7 @@ local function getNextIndex()
 	return next
 end
 
-local function playAtIndex(index)
+local function playAtIndex(index: number): ()
 	if not queue[index] then
 		log:warn("audioService: no sound at index " .. tostring(index))
 		return
@@ -49,7 +47,7 @@ local function playAtIndex(index)
 	end)
 end
 
-local function addToQueue(sound)
+local function addToQueue(sound: Sound): ()
 	if typeof(sound) ~= "Instance" or not sound:IsA("Sound") then
 		log:warn("audioService.addToQueue: expected Sound, got " .. typeof(sound))
 		return
@@ -57,12 +55,12 @@ local function addToQueue(sound)
 	table.insert(queue, sound)
 end
 
-local function clearQueue()
+local function clearQueue(): ()
 	queue = {}
 	currentIndex = 0
 end
 
-local function play()
+local function play(): ()
 	if currentSound and not playing then
 		currentSound:Play()
 		playing = true
@@ -73,7 +71,7 @@ local function play()
 	end
 end
 
-local function stop()
+local function stop(): ()
 	if not currentSound then
 		log:warn("audioService.stop: no active sound")
 		return
@@ -82,7 +80,7 @@ local function stop()
 	playing = false
 end
 
-local function pause()
+local function pause(): ()
 	if not currentSound then
 		log:warn("audioService.pause: no active sound")
 		return
@@ -91,7 +89,7 @@ local function pause()
 	playing = false
 end
 
-local function skip()
+local function skip(): ()
 	local next = getNextIndex()
 	if next then
 		playAtIndex(next)
@@ -100,7 +98,7 @@ local function skip()
 	end
 end
 
-local function previous()
+local function previous(): ()
 	if #queue == 0 then
 		log:warn("audioService.previous: queue is empty")
 		return
@@ -110,7 +108,7 @@ local function previous()
 	playAtIndex(prev)
 end
 
-local function setVolume(volume)
+local function setVolume(volume: number): ()
 	if not currentSound then
 		log:warn("audioService.setVolume: no active sound")
 		return
@@ -122,7 +120,7 @@ local function setVolume(volume)
 	currentSound.Volume = math.clamp(volume, 0, 1)
 end
 
-local function fadeIn(duration, targetVolume)
+local function fadeIn(duration: number?, targetVolume: number?): ()
 	if not currentSound then
 		log:warn("audioService.fadeIn: no active sound")
 		return
@@ -134,7 +132,7 @@ local function fadeIn(duration, targetVolume)
 	TweenService:Create(currentSound, info, { Volume = targetVolume or 1 }):Play()
 end
 
-local function fadeOut(duration, callback)
+local function fadeOut(duration: number?, callback: (() -> ())?): ()
 	if not currentSound then
 		log:warn("audioService.fadeOut: no active sound")
 		return
@@ -153,7 +151,7 @@ local function fadeOut(duration, callback)
 	end)
 end
 
-local function setLooping(bool)
+local function setLooping(bool: boolean): ()
 	if type(bool) ~= "boolean" then
 		log:warn("audioService.setLooping: expected boolean, got " .. type(bool))
 		return
@@ -161,7 +159,7 @@ local function setLooping(bool)
 	looping = bool
 end
 
-local function setShuffle(bool)
+local function setShuffle(bool: boolean): ()
 	if type(bool) ~= "boolean" then
 		log:warn("audioService.setShuffle: expected boolean, got " .. type(bool))
 		return
@@ -169,11 +167,11 @@ local function setShuffle(bool)
 	shuffle = bool
 end
 
-local function isPlaying()
+local function isPlaying(): boolean
 	return playing
 end
 
-local function getCurrent()
+local function getCurrent(): Sound?
 	return currentSound
 end
 
