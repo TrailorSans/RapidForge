@@ -17,4 +17,11 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+      - name: Restructure for MkDocs
+        run: |
+          mkdir -p docs_src/docs docs_src/meta
+          cp README.md docs_src/docs/index.md
+          cp docs/*.md docs_src/docs/
+          cp meta/*.md docs_src/meta/
+          cp mkdocs.yml docs_src/
+      - run: cd docs_src && mkdocs gh-deploy --force
