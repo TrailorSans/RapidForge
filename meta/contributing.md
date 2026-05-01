@@ -88,7 +88,7 @@ Add a checked entry under the appropriate category:
 
 - All functions must be accessible via `RapidForge.*`
 - Optional parameters use a default in the implementation and are documented as `param?: type = default`
-- Warn (don't error) on invalid input where recovery is possible — see `animateSlideIn` and `waitFor` for examples
+- Warn (don't error) on invalid input where recovery is possible. Use log:warn. See [examples](https://github.com/StudlyCase/RapidForge/blob/main/library/waitFor.lua) here
 - Do not use global state inside modules
 - Client-only functions should guard with `Players.LocalPlayer` checks
 
