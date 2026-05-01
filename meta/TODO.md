@@ -9,7 +9,7 @@
 
 ### Player
 - [X] `onDied(callback)` - fire a callback when the local player dies
-- [ ] `onRespawned(callback)` - fire a callback when the local player respawns
+- [X] `onRespawned(callback)` - fire a callback when the local player respawns
 - [ ] `getLeaderstat(name)` - return a single leaderstat value by name
 
 ### World / Instances
