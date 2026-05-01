@@ -1,79 +1,92 @@
 local Library = game:GetService("ReplicatedStorage"):WaitForChild("library")
 
+local moduleMap = {
+	indexGui     = Library.indexGui,
+	tweenObject  = Library.tweenObject,
+	onEvent      = Library.onEvent,
+	waitFor      = Library.waitFor,
+	Logger       = Library.logger,
+	indexService = Library.indexService,
+	audioService = Library.audioService,
+}
+
+local subModuleMap = {
+	playerUtils = {
+		module = Library.playerUtils,
+		keys = {
+			"getPlayer", "getCharacter", "getUserId", "getDisplayName",
+			"isAlive", "getHumanoid", "getRootPart", "getHealth",
+			"getTeam", "getTool", "getBackpack", "getLeaderstats",
+			"onDied", "onRespawned",
+		},
+	},
+	guiUtils = {
+		module = Library.guiUtils,
+		keys = {
+			"getGui", "setVisible", "clearChildren", "cloneInto",
+			"setTextAll", "animateFadeIn", "animateFadeOut",
+			"animateSlideIn", "centerObject", "setTheme",
+		},
+	},
+	worldUtils = {
+		module = Library.worldUtils,
+		keys = {
+			"getDescendantsOfClass", "findFirstAncestorOfClass", "destroyAfter",
+			"isDescendantOf", "cloneAt", "setAllProperties", "countDescendants",
+			"getRandomChild", "moveToSurface", "getModelSize",
+		},
+	},
+	mathUtils = {
+		module = Library.mathUtils,
+		keys = {
+			"lerp", "clamp", "roundTo", "randomFloat", "randomInt",
+			"distanceBetween", "lookAtCFrame", "flattenVector",
+			"angleToTarget", "isInRange", "randomVector",
+		},
+	},
+	utilityUtils = {
+		module = Library.utilityUtils,
+		keys = {
+			"debounce", "retry", "formatNumber", "formatTime",
+			"tableContains", "tableKeys", "tableLength",
+			"merge", "deepCopy", "throttle", "once",
+		},
+	},
+}
+
+local keyToSubModule = {}
+for modName, data in pairs(subModuleMap) do
+	for _, key in ipairs(data.keys) do
+		keyToSubModule[key] = modName
+	end
+end
+
+local loadedModules = {}
+
 local RapidForge = {}
 
-RapidForge.indexGui = require(Library.indexGui)
-RapidForge.tweenObject = require(Library.tweenObject)
-RapidForge.onEvent = require(Library.onEvent)
-RapidForge.waitFor = require(Library.waitFor)
-RapidForge.Logger = require(Library.logger)
-RapidForge.indexService = require(Library.indexService)
-RapidForge.audioService = require(Library.audioService)
+setmetatable(RapidForge, {
+	__index = function(t, key)
+		if moduleMap[key] then
+			local value = require(moduleMap[key])
+			rawset(t, key, value)
+			return value
+		end
 
-local playerUtils = require(Library.playerUtils)
-RapidForge.getPlayer = playerUtils.getPlayer
-RapidForge.getCharacter = playerUtils.getCharacter
-RapidForge.getUserId = playerUtils.getUserId
-RapidForge.getDisplayName = playerUtils.getDisplayName
-RapidForge.isAlive = playerUtils.isAlive
-RapidForge.getHumanoid = playerUtils.getHumanoid
-RapidForge.getRootPart = playerUtils.getRootPart
-RapidForge.getHealth = playerUtils.getHealth
-RapidForge.getTeam = playerUtils.getTeam
-RapidForge.getTool = playerUtils.getTool
-RapidForge.getBackpack = playerUtils.getBackpack
-RapidForge.getLeaderstats = playerUtils.getLeaderstats
-RapidForge.onDied = playerUtils.onDied
-RapidForge.onRespawned = playerUtils.onRespawned
+		local modName = keyToSubModule[key]
+		if modName then
+			if not loadedModules[modName] then
+				loadedModules[modName] = require(subModuleMap[modName].module)
+			end
+			local mod = loadedModules[modName]
+			for _, k in ipairs(subModuleMap[modName].keys) do
+				rawset(t, k, mod[k])
+			end
+			return rawget(t, key)
+		end
 
-local guiUtils = require(Library.guiUtils)
-RapidForge.getGui = guiUtils.getGui
-RapidForge.setVisible = guiUtils.setVisible
-RapidForge.clearChildren = guiUtils.clearChildren
-RapidForge.cloneInto = guiUtils.cloneInto
-RapidForge.setTextAll = guiUtils.setTextAll
-RapidForge.animateFadeIn = guiUtils.animateFadeIn
-RapidForge.animateFadeOut = guiUtils.animateFadeOut
-RapidForge.animateSlideIn = guiUtils.animateSlideIn
-RapidForge.centerObject = guiUtils.centerObject
-RapidForge.setTheme = guiUtils.setTheme
-
-local worldUtils = require(Library.worldUtils)
-RapidForge.getDescendantsOfClass = worldUtils.getDescendantsOfClass
-RapidForge.findFirstAncestorOfClass = worldUtils.findFirstAncestorOfClass
-RapidForge.destroyAfter = worldUtils.destroyAfter
-RapidForge.isDescendantOf = worldUtils.isDescendantOf
-RapidForge.cloneAt = worldUtils.cloneAt
-RapidForge.setAllProperties = worldUtils.setAllProperties
-RapidForge.countDescendants = worldUtils.countDescendants
-RapidForge.getRandomChild = worldUtils.getRandomChild
-RapidForge.moveToSurface = worldUtils.moveToSurface
-RapidForge.getModelSize = worldUtils.getModelSize
-
-local mathUtils = require(Library.mathUtils)
-RapidForge.lerp = mathUtils.lerp
-RapidForge.clamp = mathUtils.clamp
-RapidForge.roundTo = mathUtils.roundTo
-RapidForge.randomFloat = mathUtils.randomFloat
-RapidForge.randomInt = mathUtils.randomInt
-RapidForge.distanceBetween = mathUtils.distanceBetween
-RapidForge.lookAtCFrame = mathUtils.lookAtCFrame
-RapidForge.flattenVector = mathUtils.flattenVector
-RapidForge.angleToTarget = mathUtils.angleToTarget
-RapidForge.isInRange = mathUtils.isInRange
-RapidForge.randomVector = mathUtils.randomVector
-
-local utilityUtils = require(Library.utilityUtils)
-RapidForge.debounce = utilityUtils.debounce
-RapidForge.retry = utilityUtils.retry
-RapidForge.formatNumber = utilityUtils.formatNumber
-RapidForge.formatTime = utilityUtils.formatTime
-RapidForge.tableContains = utilityUtils.tableContains
-RapidForge.tableKeys = utilityUtils.tableKeys
-RapidForge.tableLength = utilityUtils.tableLength
-RapidForge.merge = utilityUtils.merge
-RapidForge.deepCopy = utilityUtils.deepCopy
-RapidForge.throttle = utilityUtils.throttle
-RapidForge.once = utilityUtils.once
+		return nil
+	end,
+})
 
 return RapidForge
