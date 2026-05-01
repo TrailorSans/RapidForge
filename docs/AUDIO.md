@@ -13,7 +13,7 @@ Adds a `Sound` instance to the playback queue.
 | **Parameters** | `sound: Sound` |
 
 ```lua
-RapidForge.AudioService.addToQueue(soundInstance)
+RapidForge.addToQueue(soundInstance)
 ```
 
 ---
@@ -23,7 +23,7 @@ RapidForge.AudioService.addToQueue(soundInstance)
 Clears all sounds from the queue and resets the index.
 
 ```lua
-RapidForge.AudioService.clearQueue()
+RapidForge.clearQueue()
 ```
 
 ---
@@ -33,7 +33,7 @@ RapidForge.AudioService.clearQueue()
 Resumes a paused sound or starts playback from the current queue position.
 
 ```lua
-RapidForge.AudioService.play()
+RapidForge.play()
 ```
 
 ---
@@ -43,7 +43,7 @@ RapidForge.AudioService.play()
 Stops the current sound.
 
 ```lua
-RapidForge.AudioService.stop()
+RapidForge.stop()
 ```
 
 ---
@@ -53,7 +53,7 @@ RapidForge.AudioService.stop()
 Pauses the current sound.
 
 ```lua
-RapidForge.AudioService.pause()
+RapidForge.pause()
 ```
 
 ---
@@ -63,7 +63,7 @@ RapidForge.AudioService.pause()
 Skips to the next sound in the queue. Respects shuffle mode.
 
 ```lua
-RapidForge.AudioService.skip()
+RapidForge.skip()
 ```
 
 ---
@@ -73,7 +73,7 @@ RapidForge.AudioService.skip()
 Goes back to the previous sound in the queue.
 
 ```lua
-RapidForge.AudioService.previous()
+RapidForge.previous()
 ```
 
 ---
@@ -87,7 +87,7 @@ Sets the volume of the current sound.
 | **Parameters** | `volume: number` (0–1) |
 
 ```lua
-RapidForge.AudioService.setVolume(0.5)
+RapidForge.setVolume(0.5)
 ```
 
 ---
@@ -101,7 +101,7 @@ Fades the current sound in from `0` to `targetVolume`.
 | **Parameters** | `duration?: number = 1`, `targetVolume?: number = 1` |
 
 ```lua
-RapidForge.AudioService.fadeIn(2, 0.8)
+RapidForge.fadeIn(2, 0.8)
 ```
 
 ---
@@ -115,7 +115,7 @@ Fades the current sound out to `0`, then stops it. Calls `callback` when complet
 | **Parameters** | `duration?: number = 1`, `callback?: function` |
 
 ```lua
-RapidForge.AudioService.fadeOut(1, function()
+RapidForge.fadeOut(1, function()
     print("faded out")
 end)
 ```
@@ -124,14 +124,14 @@ end)
 
 ### `setLooping(bool)`
 
-Enables or disables looping of the current sound. When `true`, the current track repeats instead of advancing the queue.
+Enables or disables looping of the current track. When `true`, the current track repeats instead of advancing the queue.
 
 | | |
 |---|---|
 | **Parameters** | `bool: boolean` |
 
 ```lua
-RapidForge.AudioService.setLooping(true)
+RapidForge.setLooping(true)
 ```
 
 ---
@@ -145,7 +145,7 @@ Enables or disables shuffle mode. When `true`, the next track is picked randomly
 | **Parameters** | `bool: boolean` |
 
 ```lua
-RapidForge.AudioService.setShuffle(true)
+RapidForge.setShuffle(true)
 ```
 
 ---
@@ -159,7 +159,7 @@ Returns `true` if a sound is currently playing.
 | **Returns** | `boolean` |
 
 ```lua
-if RapidForge.AudioService.isPlaying() then
+if RapidForge.isPlaying() then
     -- music is active
 end
 ```
@@ -175,5 +175,5 @@ Returns the currently active `Sound` instance.
 | **Returns** | `Sound?` |
 
 ```lua
-local sound = RapidForge.AudioService.getCurrent()
+local sound = RapidForge.getCurrent()
 ```
